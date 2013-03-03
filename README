@@ -1,0 +1,7 @@
+Application for saving content from fanfiction.net.
+
+Usage:
+$ python main.py URL_TO_FIC pdf|txt
+
+Requires:
+python>=3.2, python-lxml
