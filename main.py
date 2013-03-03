@@ -34,14 +34,21 @@ class Fanfic:
         table = page.iter(tag="table")[0]
         #1. Извлечь из таблицы текст
         return text
+    
+    def create_txt(self):
+        return self.get_title() + '\n' + '\n\n'.join(self.pages)
 
-    def create(type):
-        #1. Создать из полученного фанфика документ определенного формата
+    def create_pdf(self):
         pass
+
+    def get_creater(self, output_type="txt"):
+        types = dict(txt=create_txt, pdf=create_pdf)
+        return self.types[output_type]()
 
 
 def main():
     main_url = argv[1]
     fic = Fanfic(main_url)
     fic.parse_fanfic()
-    fic.create(argv[2])
+    output = fic.get_creater(argv[2])
+    #1. Сохранить output
